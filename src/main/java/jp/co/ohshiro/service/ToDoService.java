@@ -3,11 +3,13 @@ package jp.co.ohshiro.service;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.ohshiro.domain.ToDo;
 import jp.co.ohshiro.repository.ToDoRepository;
 
+@Service
 public class ToDoService {
 
 	@Autowired
@@ -21,9 +23,8 @@ public class ToDoService {
 
     //INSERTを行うMapperのメソッドを呼び出す
     @Transactional
-    public void insert(Long id, String title, LocalDateTime createdAt) {
-    	ToDo toDo = new ToDo(id, title, createdAt);
-    	toDoRepository.insert(toDo);
+    public void insert(ToDo todo) {
+    	toDoRepository.insert(todo);
     }
 
     //UPDATEを行うMapperのメソッドを呼び出す
