@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToDoリスト</title>
+</head>
+<body>
+	<div class="container">
+		<form th:action="@{/todo_insert}" th:object="${todoForm}" method="POST">
+			<table>
+				<tr>
+					<th>ToDoタイトル</th>
+					<td><input type="text" class="text-long" th:field="*{todoTitle}" /></td>
+				</tr>
+			</table>
+			<input class="button" type="submit" name="insert" value="送信" />
+		</form>
+	</div>
+</body>
+</html>
