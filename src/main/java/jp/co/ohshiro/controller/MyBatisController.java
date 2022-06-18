@@ -20,7 +20,7 @@ public class MyBatisController {
 	    return "index";
 	}
 
-	@PostMapping("/todo_insert")
+	@PostMapping("/todo/insert")
 	public String todoInsert(ToDo todo) {
 		todoService.insert(todo);
 		return "index";
