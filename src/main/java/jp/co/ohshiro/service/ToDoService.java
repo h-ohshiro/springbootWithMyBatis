@@ -1,6 +1,6 @@
 package jp.co.ohshiro.service;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +20,12 @@ public class ToDoService {
     public ToDo select(Long id) {
         return toDoRepository.select(id);
     }
+  //SELECTを行うMapperのメソッドを呼び出す
+    @Transactional
+    public List<ToDo> selectAll() {
+    	List<ToDo> todoList = toDoRepository.selectAll();
+        return todoList;
+    }
 
     //INSERTを行うMapperのメソッドを呼び出す
     @Transactional
@@ -29,9 +35,7 @@ public class ToDoService {
 
     //UPDATEを行うMapperのメソッドを呼び出す
     @Transactional
-    public void update(Long id, String title, LocalDateTime createdAt) {
-    	ToDo toDo = new ToDo(id, title, createdAt);
-    	toDoRepository.update(toDo);
+    public void update(Long id, String title, String date) {
     }
 
     //DELETEを行うMapperのメソッドを呼び出す
@@ -39,5 +43,4 @@ public class ToDoService {
     public void delete(Long id) {
     	toDoRepository.delete(id);
     }
-	
 }

@@ -18,5 +18,23 @@
 			<input class="button" type="submit" name="insert" value="送信" />
 		</form>
 	</div>
+	<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>やること</th>
+					<th>作成日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${!#lists.isEmpty(todoList)}" th:each="todo : ${todoList}">
+					<td th:text="${todo.todo_id}"></td>
+					<td th:text="${todo.todo_title}"></td>
+					<td th:text="${todo.date}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
